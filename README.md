@@ -10,13 +10,11 @@ The GraphQL Interface Generator is a .NET console application that can be run fr
 
 Usage: graphqlgen [options]
 
-Options:
--f, --file <FILE> The file path to generate the code. (default: ../Infrastructure/Common/Interfaces/WFM/GqlApiClient.cs)
--r, --region <NAME> The region name to extract classes from. (default: data classes)
--u, --uri <URI> The GraphQL API endpoint URI. (default: https://wfm-mtcloud.ptxcloud.com:3005/graphql)
---help Display this help screen.
---version Display version information.
+To use this program, you need to provide the following command line arguments:
 
+--file (-f): The file path to save the generated code. Default is ..\Infrastructure\Common\Interfaces\WFM\GqlApiClient.cs.
+--region (-r): The name of the region in the generated code that contains the data classes. Default is data classes.
+--uri (-u): The URI of the GraphQL API endpoint. Default is https://wfm-mtcloud.ptxcloud.com:3005/graphql.
 To run the program, open a command prompt and navigate to the directory containing the executable file. Then, type the following command:
   
 GqlApiClientGenerator.exe --file <file_path> --region <region_name> --uri <api_uri>  
