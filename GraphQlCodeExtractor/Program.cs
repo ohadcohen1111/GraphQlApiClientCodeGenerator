@@ -13,7 +13,7 @@ class Program
     {
         // Set default values
         string graphQlUri = @"https://wfm-mtcloud.ptxcloud.com:3005/graphql";
-        string filePath = @"..\Infrastructure\Common\Interfaces\WFM\GqlApiClient.cs";
+        string filePath = @"C:\Users\ohad.cohen\Desktop\Ohad\TestA123.cs";
         string regionName = "data classes";
 
         // Parse command line arguments
@@ -23,6 +23,9 @@ class Program
             { "r|region=", "The region name to extract classes from.", r => regionName = r },
             { "u|uri=", "The GraphQL API endpoint URI.", u => graphQlUri = u }
         };
+
+        // It is to use the parameters if the user brought
+        List<string> extraArgs = options.Parse(args);
 
         try
         {
@@ -47,7 +50,9 @@ class Program
 
             csharpCode = ExtractClassesToInterfaces(csharpCode, regionName);
 
+            Console.WriteLine($"Writing generated code to file: {filePath}");
             await File.WriteAllTextAsync(filePath, csharpCode);
+            Console.WriteLine("File written successfully");
         }
         catch (Exception ex)
         {
