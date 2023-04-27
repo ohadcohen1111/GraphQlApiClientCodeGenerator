@@ -1,6 +1,8 @@
 # GraphQL Interface Generator
 
-The GraphQL Interface Generator is a tool that automatically generates C# interfaces from a GraphQL API. The tool reads the schema of a GraphQL endpoint and generates C# code for each of the API's data classes as interfaces. This can be useful for defining contracts between services or for generating client-side code that depends on the API.
+This program is a code generator that generates C# code from a GraphQL API schema. It uses the GraphQL Generator library to retrieve the schema and generate the C# code. The generated code includes data classes that correspond to the GraphQL schema types, and a client class that can be used to make GraphQL queries and mutations against the API.
+
+This program includes a method to extract the data classes from the generated code and convert them into interfaces. The generated interfaces can be used to implement the repository pattern in a .NET Core application.
 
 ## Usage
 
@@ -15,13 +17,17 @@ Options:
 --help Display this help screen.
 --version Display version information.
 
-
-To run the tool, navigate to the directory containing the graphqlgen.exe file and enter the following command:
-
-graphqlgen --uri <GRAPHQL_ENDPOINT_URI> --file <OUTPUT_FILE_PATH> --region <REGION_NAME>
+To run the program, open a command prompt and navigate to the directory containing the executable file. Then, type the following command:
   
+GqlApiClientGenerator.exe --file <file_path> --region <region_name> --uri <api_uri>  
   
-Replace `<GRAPHQL_ENDPOINT_URI>` with the URL of the GraphQL API endpoint, `<OUTPUT_FILE_PATH>` with the path and file name of the output C# file, and `<REGION_NAME>` with the name of the C# region containing the data classes you want to generate interfaces for.
+For example:  
+  GqlApiClientGenerator.exe --file "..\MyProject\Repositories\GqlApiClient.cs" --region "entities" --uri "https://myapi.com/graphql"
+
+#How to Run
+To run the program from the command line, navigate to the directory containing the executable file and type the command with the desired command line arguments (as described in the Usage section above).
+
+To run the program from Visual Studio, open the solution file and build the project. Then, open the command window (View > Other Windows > Command Window) and type the command with the desired command line arguments (as described in the Usage section above). You can also set the command line arguments in the project properties (Debug > Application arguments) and run the program with the Start button.
 
 ## Building
 
