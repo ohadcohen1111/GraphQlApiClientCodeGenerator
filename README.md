@@ -15,7 +15,8 @@ To run the program, open a command prompt and navigate to the directory containi
   
 GqlApiClientGenerator.exe --file <file_path> --region <region_name> --uri <api_uri>  
   
-For example:  
+For example:    
+
   `GqlApiClientGenerator.exe --file "..\MyProject\Repositories\GqlApiClient.cs" --region "entities" --uri "https://myapi.com/graphql"`
 
 ## How to Run  
