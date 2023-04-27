@@ -6,23 +6,20 @@ This program includes a method to extract the data classes from the generated co
 
 ## Usage
 
-The GraphQL Interface Generator is a .NET console application that can be run from the command line. It takes the following parameters:
-
-Usage: graphqlgen [options]
-
 To use this program, you need to provide the following command line arguments:
 
---file (-f): The file path to save the generated code. Default is ..\Infrastructure\Common\Interfaces\WFM\GqlApiClient.cs.
---region (-r): The name of the region in the generated code that contains the data classes. Default is data classes.
---uri (-u): The URI of the GraphQL API endpoint. Default is https://wfm-mtcloud.ptxcloud.com:3005/graphql.
+* --file (-f): The file path to save the generated code. Default is ..\Infrastructure\Common\Interfaces\WFM\GqlApiClient.cs.
+* --region (-r): The name of the region in the generated code that contains the data classes. Default is data classes.
+* --uri (-u): The URI of the GraphQL API endpoint. Default is https://wfm-mtcloud.ptxcloud.com:3005/graphql.
 To run the program, open a command prompt and navigate to the directory containing the executable file. Then, type the following command:
   
 GqlApiClientGenerator.exe --file <file_path> --region <region_name> --uri <api_uri>  
   
 For example:  
-  GqlApiClientGenerator.exe --file "..\MyProject\Repositories\GqlApiClient.cs" --region "entities" --uri "https://myapi.com/graphql"
+  `GqlApiClientGenerator.exe --file "..\MyProject\Repositories\GqlApiClient.cs" --region "entities" --uri "https://myapi.com/graphql"`
 
-#How to Run
+## How to Run  
+
 To run the program from the command line, navigate to the directory containing the executable file and type the command with the desired command line arguments (as described in the Usage section above).
 
 To run the program from Visual Studio, open the solution file and build the project. Then, open the command window (View > Other Windows > Command Window) and type the command with the desired command line arguments (as described in the Usage section above). You can also set the command line arguments in the project properties (Debug > Application arguments) and run the program with the Start button.
