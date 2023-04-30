@@ -18,7 +18,7 @@ GqlApiClientGenerator.exe --file <file_path> --region <region_name> --uri <api_u
   
 For example:    
 
-  `GqlApiClientGenerator.exe --file "..\MyProject\Repositories\GqlApiClient.cs" --region "entities" --uri "https://myapi.com/graphql"` --namespace "Infrastructure.Common.Interfaces.WFM"
+  `GqlApiClientGenerator.exe --file "..\MyProject\Repositories\GqlApiClient.cs" --region "entities" --uri "https://myapi.com/graphql" --namespace "Infrastructure.Common.Interfaces.WFM"`
 
 ## How to Run  
 
