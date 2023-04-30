@@ -13,15 +13,17 @@ class Program
     {
         // Set default values
         string graphQlUri = @"https://wfm-mtcloud.ptxcloud.com:3005/graphql";
-        string filePath = @"C:\Users\ohad.cohen\Desktop\Ohad\TestA123.cs";
+        string filePath = @"C:\Users\ohad.cohen\Desktop\Ohad\Dispatcher\Infrastructure\Common\Interfaces\WFM\GqlApiClient.cs";
         string regionName = "data classes";
+        string nameSpace = "Infrastructure.Common.Interfaces.WFM";
 
         // Parse command line arguments
         var options = new OptionSet
         {
             { "f|file=", "The file path to generate the code.", f => filePath = f },
             { "r|region=", "The region name to extract classes from.", r => regionName = r },
-            { "u|uri=", "The GraphQL API endpoint URI.", u => graphQlUri = u }
+            { "u|uri=", "The GraphQL API endpoint URI.", u => graphQlUri = u },
+            { "n|namespace=", "The namespace for the generated code.", n => nameSpace = n }
         };
 
         // It is to use the parameters if the user brought
@@ -29,7 +31,7 @@ class Program
 
         try
         {
-            await GenerateSchemaFile(graphQlUri, filePath, regionName);
+            await GenerateSchemaFile(graphQlUri, filePath, regionName, nameSpace);
 
             Console.WriteLine("Code generation complete.");
         }
@@ -39,14 +41,14 @@ class Program
         }
     }
 
-    private static async Task GenerateSchemaFile(string garphQlUri, string filePath, string regionName)
+    private static async Task GenerateSchemaFile(string garphQlUri, string filePath, string regionName, string nameSpace)
     {
         try
         {
             var schema = await GraphQlGenerator.RetrieveSchema(HttpMethod.Get, garphQlUri);
 
             var csharpCode =
-                new GraphQlGenerator().GenerateFullClientCSharpFile(schema, "Infrastructure.Common.Interfaces.WFM");
+                new GraphQlGenerator().GenerateFullClientCSharpFile(schema, nameSpace);
 
             csharpCode = ExtractClassesToInterfaces(csharpCode, regionName);
 
