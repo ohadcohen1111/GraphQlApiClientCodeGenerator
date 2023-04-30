@@ -3,6 +3,7 @@ using GraphQlClientGenerator;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
+using Microsoft.CodeAnalysis.Formatting;
 using Mono.Options;
 
 namespace GraphQlApiClientCodeGenerator;
@@ -125,9 +126,10 @@ class Program
         string newCode = newTree.ToString();
         string modifiedCode = ReplaceRegion(csharpCode, newCode, regionName);
 
-        // Use NormalizeWhitespace to format the modified code
+        // Use Formatter to format the modified code
         CSharpParseOptions parseOptions = new CSharpParseOptions().WithDocumentationMode(DocumentationMode.Parse); // set options as desired
-        SyntaxNode formattedNode = CSharpSyntaxTree.ParseText(modifiedCode, parseOptions).GetRoot();
+        SyntaxNode modifiedNode = CSharpSyntaxTree.ParseText(modifiedCode, parseOptions).GetRoot();
+        SyntaxNode formattedNode = Formatter.Format(modifiedNode, new AdhocWorkspace());
         return formattedNode.ToFullString();
     }
 
