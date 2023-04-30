@@ -11,13 +11,14 @@ To use this program, you need to provide the following command line arguments:
 * --file (-f): The file path to save the generated code. Default is ..\Infrastructure\Common\Interfaces\WFM\GqlApiClient.cs.
 * --region (-r): The name of the region in the generated code that contains the data classes. Default is data classes.
 * --uri (-u): The URI of the GraphQL API endpoint. Default is https://wfm-mtcloud.ptxcloud.com:3005/graphql.
+* --namespace (-n): The namespace for the generated code. Default is no namespace.
 To run the program, open a command prompt and navigate to the directory containing the executable file. Then, type the following command:
   
 GqlApiClientGenerator.exe --file <file_path> --region <region_name> --uri <api_uri>  
   
 For example:    
 
-  `GqlApiClientGenerator.exe --file "..\MyProject\Repositories\GqlApiClient.cs" --region "entities" --uri "https://myapi.com/graphql"`
+  `GqlApiClientGenerator.exe --file "..\MyProject\Repositories\GqlApiClient.cs" --region "entities" --uri "https://myapi.com/graphql" --namespace "Infrastructure.Common.Interfaces.WFM"`
 
 ## How to Run  
 
